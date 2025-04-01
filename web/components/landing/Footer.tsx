@@ -9,9 +9,14 @@ export default function Footer() {
     <>
       {/* 移动端布局 - 仅在小屏幕显示 */}
       <div className="md:hidden">
-        <div className="mb-8">
-          <div className="bg-black text-white py-8 px-6 rounded-3xl border border-transparent" 
-               style={{ borderImage: 'linear-gradient(to bottom, #FFEE00, #FF3B30) 1', borderWidth: '2px' }}>
+        <div>
+          <div className="bg-black text-white py-8 px-6 rounded-[20px] relative" 
+               style={{ 
+                 border: '2px solid transparent',
+                 backgroundImage: 'linear-gradient(black, black), linear-gradient(to bottom, #FFEE00, #FF3B30)',
+                 backgroundOrigin: 'border-box',
+                 backgroundClip: 'padding-box, border-box'
+               }}>
             <div className="mb-8">
               <div className="mb-6">
                 <Image 
@@ -106,8 +111,13 @@ export default function Footer() {
 
       {/* 桌面端整合布局 - 仅在中等及以上屏幕显示 */}
       <div className="hidden md:block">
-        <div className="bg-black text-white py-10 px-12 lg:py-12 lg:px-16 rounded-3xl border border-transparent mx-auto" 
-             style={{ borderImage: 'linear-gradient(to right, #FFEE00, #FF3B30) 1', borderWidth: '2px' }}>
+        <div className="bg-black text-white py-10 px-12 lg:py-4 lg:px-16 rounded-3xl relative mx-auto" 
+             style={{ 
+               border: '2px solid transparent',
+               backgroundImage: 'linear-gradient(black, black), linear-gradient(to right, #FFEE00, #FF3B30)',
+               backgroundOrigin: 'border-box',
+               backgroundClip: 'padding-box, border-box'
+             }}>
           <div className="flex flex-wrap lg:flex-nowrap items-start justify-between gap-8">
             {/* 左侧：LOGO和二维码 */}
             <div className="flex-shrink-0 w-full lg:w-auto max-w-xs">

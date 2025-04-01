@@ -52,18 +52,18 @@ export default function NFTWall() {
   ];
   
   return (
-    <div className="mb-8 md:mb-16 lg:mb-20 w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
+    <div>
       <div className="bg-black md:rounded-none">
         <div className="max-w-7xl mx-auto px-3 md:px-6 lg:px-8">
           <div className="text-white p-4 md:p-6 rounded-t-2xl md:rounded-none">
             <div className="flex justify-between items-center">
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-black">MEMEBERS NFT WALL</h2>
               <div className="bg-[#FFFC26] rounded-full w-12 h-12 md:w-14 md:h-14 flex items-center justify-center">
-                <Image 
-                  src="/landingpage/activites/solar_list-bold-duotone.png" 
-                  alt="列表" 
-                  width={48} 
-                  height={48} 
+                <Image
+                  src="/landingpage/activites/solar_list-bold-duotone.png"
+                  alt="列表"
+                  width={48}
+                  height={48}
                   className="object-contain"
                 />
               </div>
@@ -71,197 +71,257 @@ export default function NFTWall() {
           </div>
         </div>
       </div>
-      
+
       <div className="bg-black md:rounded-none">
         {/* <div className="max-w-7xl mx-auto px-3 md:px-6 lg:px-8"> */}
-          <div className="p-4 md:p-6 rounded-b-2xl md:rounded-none">
-            {/* 移动端双列滚动区域 */}
-            <div className="flex gap-3 h-[500px] md:hidden">
-              {/* 左列 - 向下滚动 */}
-              <div 
-                className="flex-1 overflow-hidden relative"
-                onMouseEnter={() => setIsHovered1(true)}
-                onMouseLeave={() => setIsHovered1(false)}
+        <div className="p-4 md:p-6 rounded-b-2xl md:rounded-none">
+          {/* 移动端双列滚动区域 */}
+          <div className="flex gap-3 h-[500px] md:hidden">
+            {/* 左列 - 向下滚动 */}
+            <div
+              className="flex-1 overflow-hidden relative"
+              onMouseEnter={() => setIsHovered1(true)}
+              onMouseLeave={() => setIsHovered1(false)}
+            >
+              <div
+                className="space-y-3 animate-scroll-down"
+                style={{
+                  animationPlayState: isHovered1 ? "paused" : "running"
+                }}
               >
-                <div 
-                  className="space-y-3 animate-scroll-down"
-                  style={{
-                    animationPlayState: isHovered1 ? "paused" : "running"
-                  }}
-                >
-                  {[...nfts, ...nfts, ...nfts].map((nft, index) => (
-                    <NFTCard 
-                      key={`nft-left-${nft.id}-${index}`} 
-                      nft={nft} 
-                    />
-                  ))}
-                </div>
-              </div>
-
-              {/* 右列 - 向上滚动 */}
-              <div 
-                className="flex-1 overflow-hidden relative"
-                onMouseEnter={() => setIsHovered2(true)}
-                onMouseLeave={() => setIsHovered2(false)}
-              >
-                <div 
-                  className="space-y-3 animate-scroll-up"
-                  style={{
-                    animationPlayState: isHovered2 ? "paused" : "running"
-                  }}
-                >
-                  {[...nfts, ...nfts, ...nfts].map((nft, index) => (
-                    <NFTCard 
-                      key={`nft-right-${nft.id}-${index}`} 
-                      nft={nft} 
-                    />
-                  ))}
-                </div>
+                {[...nfts, ...nfts, ...nfts].map((nft, index) => (
+                  <NFTCard
+                    key={`nft-left-${nft.id}-${index}`}
+                    nft={nft}
+                  />
+                ))}
               </div>
             </div>
 
-            {/* 桌面端五列滚动区域 */}
-            <div className="hidden md:flex gap-3 md:gap-4 lg:gap-5 h-[600px] lg:h-[700px]">
-              {/* 第一列 - 向下滚动 */}
-              <div 
-                className="flex-1 overflow-hidden relative"
-                onMouseEnter={() => setIsHovered1(true)}
-                onMouseLeave={() => setIsHovered1(false)}
+            {/* 右列 - 向上滚动 */}
+            <div
+              className="flex-1 overflow-hidden relative"
+              onMouseEnter={() => setIsHovered2(true)}
+              onMouseLeave={() => setIsHovered2(false)}
+            >
+              <div
+                className="space-y-3 animate-scroll-up"
+                style={{
+                  animationPlayState: isHovered2 ? "paused" : "running"
+                }}
               >
-                <div 
-                  className="space-y-4 animate-scroll-down"
-                  style={{
-                    animationPlayState: isHovered1 ? "paused" : "running",
-                    animationDuration: "30s"
-                  }}
-                >
-                  {[...nfts, ...nfts, ...nfts].map((nft, index) => (
-                    <NFTCard 
-                      key={`nft-col1-${nft.id}-${index}`} 
-                      nft={nft} 
-                    />
-                  ))}
-                </div>
-              </div>
-
-              {/* 第二列 - 向上滚动 */}
-              <div 
-                className="flex-1 overflow-hidden relative"
-                onMouseEnter={() => setIsHovered2(true)}
-                onMouseLeave={() => setIsHovered2(false)}
-              >
-                <div 
-                  className="space-y-4 animate-scroll-up"
-                  style={{
-                    animationPlayState: isHovered2 ? "paused" : "running",
-                    animationDuration: "35s"
-                  }}
-                >
-                  {[...nfts, ...nfts, ...nfts].map((nft, index) => (
-                    <NFTCard 
-                      key={`nft-col2-${nft.id}-${index}`} 
-                      nft={nft} 
-                    />
-                  ))}
-                </div>
-              </div>
-
-              {/* 第三列 - 向下滚动 */}
-              <div 
-                className="flex-1 overflow-hidden relative"
-                onMouseEnter={() => setIsHovered3(true)}
-                onMouseLeave={() => setIsHovered3(false)}
-              >
-                <div 
-                  className="space-y-4 animate-scroll-down"
-                  style={{
-                    animationPlayState: isHovered3 ? "paused" : "running",
-                    animationDuration: "28s"
-                  }}
-                >
-                  {[...nfts, ...nfts, ...nfts].map((nft, index) => (
-                    <NFTCard 
-                      key={`nft-col3-${nft.id}-${index}`} 
-                      nft={nft} 
-                    />
-                  ))}
-                </div>
-              </div>
-
-              {/* 第四列 - 向上滚动 */}
-              <div 
-                className="flex-1 overflow-hidden relative"
-                onMouseEnter={() => setIsHovered4(true)}
-                onMouseLeave={() => setIsHovered4(false)}
-              >
-                <div 
-                  className="space-y-4 animate-scroll-up"
-                  style={{
-                    animationPlayState: isHovered4 ? "paused" : "running",
-                    animationDuration: "33s"
-                  }}
-                >
-                  {[...nfts, ...nfts, ...nfts].map((nft, index) => (
-                    <NFTCard 
-                      key={`nft-col4-${nft.id}-${index}`} 
-                      nft={nft} 
-                    />
-                  ))}
-                </div>
-              </div>
-
-              {/* 第五列 - 向下滚动 */}
-              <div 
-                className="flex-1 overflow-hidden relative"
-                onMouseEnter={() => setIsHovered5(true)}
-                onMouseLeave={() => setIsHovered5(false)}
-              >
-                <div 
-                  className="space-y-4 animate-scroll-down"
-                  style={{
-                    animationPlayState: isHovered5 ? "paused" : "running",
-                    animationDuration: "31s"
-                  }}
-                >
-                  {[...nfts, ...nfts, ...nfts].map((nft, index) => (
-                    <NFTCard 
-                      key={`nft-col5-${nft.id}-${index}`} 
-                      nft={nft} 
-                    />
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* 底部说明文字 */}
-            <div className="mt-6 md:mt-8 bg-white rounded-3xl p-6 md:p-8 pb-4 md:pb-6 text-center relative">
-              <p className="text-sm md:text-base lg:text-lg leading-relaxed font-bold mb-16 md:mb-20 lg:mb-24 md:max-w-xl md:mx-auto">
-                Co-learning, co-creating,
-                <br />
-                and co-exhibiting
-                <br />
-                emphasize collaboration in learning,
-                <br />
-                creating, and showcasing.
-                <br />
-                Together,
-                <br />
-                they form a cycle that fosters innovation,
-                <br />
-                reflection, and sustainable practices.
-              </p>
-              <div className="absolute bottom-6 right-4 md:right-10 lg:right-16 translate-y-1/3">
-                <Image 
-                  src="/landingpage/mascot.png" 
-                  alt="Mascot" 
-                  width={120} 
-                  height={120} 
-                  className="object-contain md:w-[150px] md:h-[150px] lg:w-[180px] lg:h-[180px]"
-                />
+                {[...nfts, ...nfts, ...nfts].map((nft, index) => (
+                  <NFTCard
+                    key={`nft-right-${nft.id}-${index}`}
+                    nft={nft}
+                  />
+                ))}
               </div>
             </div>
           </div>
+
+          {/* 桌面端五列滚动区域 */}
+          <div className="hidden md:flex gap-3 md:gap-4 lg:gap-5 h-[600px] lg:h-[700px]">
+            {/* 第一列 - 向下滚动 */}
+            <div
+              className="flex-1 overflow-hidden relative"
+              onMouseEnter={() => setIsHovered1(true)}
+              onMouseLeave={() => setIsHovered1(false)}
+            >
+              <div
+                className="space-y-4 animate-scroll-down"
+                style={{
+                  animationPlayState: isHovered1 ? "paused" : "running",
+                  animationDuration: "30s"
+                }}
+              >
+                {[...nfts, ...nfts, ...nfts].map((nft, index) => (
+                  <NFTCard
+                    key={`nft-col1-${nft.id}-${index}`}
+                    nft={nft}
+                  />
+                ))}
+              </div>
+            </div>
+
+            {/* 第二列 - 向上滚动 */}
+            <div
+              className="flex-1 overflow-hidden relative"
+              onMouseEnter={() => setIsHovered2(true)}
+              onMouseLeave={() => setIsHovered2(false)}
+            >
+              <div
+                className="space-y-4 animate-scroll-up"
+                style={{
+                  animationPlayState: isHovered2 ? "paused" : "running",
+                  animationDuration: "35s"
+                }}
+              >
+                {[...nfts, ...nfts, ...nfts].map((nft, index) => (
+                  <NFTCard
+                    key={`nft-col2-${nft.id}-${index}`}
+                    nft={nft}
+                  />
+                ))}
+              </div>
+            </div>
+
+            {/* 第三列 - 向下滚动 */}
+            <div
+              className="flex-1 overflow-hidden relative"
+              onMouseEnter={() => setIsHovered3(true)}
+              onMouseLeave={() => setIsHovered3(false)}
+            >
+              <div
+                className="space-y-4 animate-scroll-down"
+                style={{
+                  animationPlayState: isHovered3 ? "paused" : "running",
+                  animationDuration: "28s"
+                }}
+              >
+                {[...nfts, ...nfts, ...nfts].map((nft, index) => (
+                  <NFTCard
+                    key={`nft-col3-${nft.id}-${index}`}
+                    nft={nft}
+                  />
+                ))}
+              </div>
+            </div>
+
+            {/* 第四列 - 向上滚动 */}
+            <div
+              className="flex-1 overflow-hidden relative"
+              onMouseEnter={() => setIsHovered4(true)}
+              onMouseLeave={() => setIsHovered4(false)}
+            >
+              <div
+                className="space-y-4 animate-scroll-up"
+                style={{
+                  animationPlayState: isHovered4 ? "paused" : "running",
+                  animationDuration: "33s"
+                }}
+              >
+                {[...nfts, ...nfts, ...nfts].map((nft, index) => (
+                  <NFTCard
+                    key={`nft-col4-${nft.id}-${index}`}
+                    nft={nft}
+                  />
+                ))}
+              </div>
+            </div>
+
+            {/* 第五列 - 向下滚动 */}
+            <div
+              className="flex-1 overflow-hidden relative"
+              onMouseEnter={() => setIsHovered5(true)}
+              onMouseLeave={() => setIsHovered5(false)}
+            >
+              <div
+                className="space-y-4 animate-scroll-down"
+                style={{
+                  animationPlayState: isHovered5 ? "paused" : "running",
+                  animationDuration: "31s"
+                }}
+              >
+                {[...nfts, ...nfts, ...nfts].map((nft, index) => (
+                  <NFTCard
+                    key={`nft-col5-${nft.id}-${index}`}
+                    nft={nft}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
         {/* </div> */}
+      </div>
+
+      {/* 底部说明文字 */}
+      <div className="mt-6 md:mt-8 bg-white rounded-3xl p-6 md:p-8 pb-4 md:pb-6 text-center relative">
+        {/* 移动端布局 */}
+        <div className="md:hidden">
+          <p className="text-sm leading-relaxed font-bold mb-16">
+            Co-learning, co-creating,
+            <br />
+            and co-exhibiting
+            <br />
+            emphasize collaboration in learning,
+            <br />
+            creating, and showcasing.
+            <br />
+            Together,
+            <br />
+            they form a cycle that fosters innovation,
+            <br />
+            reflection, and sustainable practices.
+          </p>
+          <div className="absolute bottom-6 right-4 translate-y-1/3">
+            <Image
+              src="/landingpage/mascot.png"
+              alt="Mascot"
+              width={120}
+              height={120}
+              className="object-contain"
+            />
+          </div>
+        </div>
+
+        {/* 桌面端布局 - mascot 插入到文字中间，两行文字格式 */}
+        <div className="hidden md:block relative">
+          <div className="flex flex-col items-center">
+            {/* 大屏幕布局 - 水平排列 */}
+            <div className="hidden lg:flex flex-row items-center justify-center text-lg font-bold py-2">
+              <div className="text-right pr-4 max-w-max">
+                <p>Co-learning, co-creating, and co-exhibiting</p>
+                <p>Together, they form a cycle that fosters</p>
+              </div>
+
+              <div className="flex-shrink-0 mx-2">
+                <div className="relative" style={{ top: '30px' }}>
+                  <Image
+                    src="/landingpage/mascot.png"
+                    alt="Mascot"
+                    width={240}
+                    height={240}
+                    className="object-contain"
+                    priority
+                  />
+                </div>
+              </div>
+
+              <div className="text-left pl-4 max-w-max">
+                <p>emphasize collaboration in learning, creating, and showcasing.</p>
+                <p>innovation, reflection, and sustainable practices.</p>
+              </div>
+            </div>
+
+            {/* 中等屏幕布局 - 水平排列但更紧凑 */}
+            <div className="flex lg:hidden flex-row items-center justify-center text-base font-bold">
+              <div className="text-right pr-2 max-w-max">
+                <p>Co-learning, co-creating, and co-exhibiting</p>
+                <p>Together, they form a cycle that fosters</p>
+              </div>
+
+              <div className="flex-shrink-0 mx-1">
+                <div className="relative" style={{ top: '25px' }}>
+                  <Image
+                    src="/landingpage/mascot.png"
+                    alt="Mascot"
+                    width={180}
+                    height={180}
+                    className="object-contain"
+                    priority
+                  />
+                </div>
+              </div>
+
+              <div className="text-left pl-2 max-w-max">
+                <p>emphasize collaboration in learning, creating, and showcasing.</p>
+                <p>innovation, reflection, and sustainable practices.</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

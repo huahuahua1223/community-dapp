@@ -26,8 +26,8 @@ const copyToClipboard = () => {
 // 主要的Donate组件，在移动端独立显示
 export default function Donate() {
   return (
-    <div className="mb-8 md:mb-16 lg:mb-20 flex justify-center md:hidden">
-      <div className="bg-[#FFFC26] rounded-3xl p-3 md:p-5 lg:p-6 overflow-hidden w-[400px] md:w-[500px] lg:w-[600px] max-w-full transition-transform hover:scale-105 duration-300">
+    <div className="flex justify-center md:hidden w-full">
+      <div className="bg-[#FFFC26] rounded-[20px] p-3 md:p-5 lg:p-6 overflow-hidden w-full">
         {/* 标题部分 */}
         <div className="flex items-center mb-4 md:mb-6">
           <Image 

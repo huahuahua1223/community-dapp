@@ -50,7 +50,7 @@ export default function ResponsiveView({ userObjects }: ResponsiveViewProps) {
   };
 
   return (
-    <div className="relative min-h-screen bg-white font-sans">
+    <div className="relative min-h-screen bg-[#302F2F] md:bg-white font-sans">
       {/* 响应式Header组件 */}
       <Header 
         setShowMenuPopup={setShowMenuPopup} 
@@ -58,27 +58,51 @@ export default function ResponsiveView({ userObjects }: ResponsiveViewProps) {
       />
 
       {/* 主要内容 - 响应式布局 */}
-      <main className="pt-0 md:pt-20 overflow-visible">      
+      <main className="pt-0 md:pt-20 overflow-visible space-y-4 md:space-y-0 px-3 md:px-0">      
         {/* 介绍区域 - 全宽 */}
-        <Introduction />
+        <div className="md:w-screen md:relative md:left-1/2 md:right-1/2 md:-ml-[50vw] md:-mr-[50vw] md:overflow-hidden">
+          <div className="rounded-b-[20px] overflow-hidden md:rounded-none">
+            <Introduction />
+          </div>
+        </div>
         
         {/* 活动区域 - 全宽 */}
-        <Activities />
+        <div className="md:w-screen md:relative md:left-1/2 md:right-1/2 md:-ml-[50vw] md:-mr-[50vw]">
+          <div className="rounded-[20px] overflow-hidden md:rounded-none">
+            <Activities />
+          </div>
+        </div>
         
         {/* 合作伙伴区域 - 全宽 */}
-        <CoPartners />
+        <div className="md:w-screen md:relative md:left-1/2 md:right-1/2 md:-ml-[50vw] md:-mr-[50vw]">
+          <div className="rounded-[20px] overflow-hidden md:rounded-none">
+            <CoPartners />
+          </div>
+        </div>
         
         {/* NFT墙 - 全宽 */}
-        <NFTWall />
+        <div className="md:w-screen md:relative md:left-1/2 md:right-1/2 md:-ml-[50vw] md:-mr-[50vw]">
+          <div className="rounded-[20px] overflow-hidden md:rounded-none">
+            <NFTWall />
+          </div>
+        </div>
         
-        <div className="px-3 md:px-6 lg:px-8 max-w-7xl mx-auto">
-          {/* 捐赠区域 */}
+        {/* 捐赠区域 */}
+        <div className="rounded-[20px] overflow-hidden md:rounded-none bg-[#302F2F] md:bg-transparent">
           <Donate />
         </div>
       </main>
       
       {/* 页脚 */}
-      <Footer />
+      <div className="mt-4 md:mt-0">
+        <div className="md:w-screen md:relative md:left-1/2 md:right-1/2 md:-ml-[50vw] md:-mr-[50vw]">
+          <div className="px-3 md:px-0">
+            <div className="bg-[#302F2F] md:bg-transparent rounded-[20px] md:rounded-none overflow-hidden">
+              <Footer />
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* 弹窗组件 */}
       <MenuModal 

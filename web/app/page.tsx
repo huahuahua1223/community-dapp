@@ -25,7 +25,7 @@ export default function Home() {
   }, [account]);
 
   return (
-    <div className="min-h-screen bg-white w-full overflow-x-hidden">
+    <div className="min-h-screen bg-[#302F2F] md:bg-white w-full overflow-x-hidden">
       <LandingView userObjects={userObjects} />
     </div>
   );

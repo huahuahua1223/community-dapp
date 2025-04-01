@@ -28,8 +28,14 @@ export default function MenuModal({
   };
   
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-white rounded-xl md:rounded-2xl shadow-lg p-6 md:p-8 max-w-[320px] md:max-w-[400px] w-full mx-4">
+    <div 
+      className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[200]"
+      onClick={() => setShowMenuPopup(false)}
+    >
+      <div 
+        className="bg-white rounded-xl md:rounded-2xl shadow-lg p-6 md:p-8 max-w-[320px] md:max-w-[400px] w-full mx-4"
+        onClick={(e) => e.stopPropagation()}
+      >
         {!currentAccount ? (
           <div className="mb-4 md:mb-6">
             <button 

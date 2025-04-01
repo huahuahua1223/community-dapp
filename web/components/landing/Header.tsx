@@ -8,9 +8,10 @@ import Link from 'next/link'
 interface HeaderProps {
   setShowMenuPopup: Dispatch<SetStateAction<boolean>>;
   setShowWalletPopup: Dispatch<SetStateAction<boolean>>;
+  BorderRadius?: boolean;
 }
 
-export default function Header({ setShowMenuPopup, setShowWalletPopup }: HeaderProps) {
+export default function Header({ setShowMenuPopup, setShowWalletPopup, BorderRadius = false }: HeaderProps) {
   const currentAccount = useCurrentAccount();
   const { mutate: disconnect } = useDisconnectWallet();
 
@@ -21,34 +22,36 @@ export default function Header({ setShowMenuPopup, setShowWalletPopup }: HeaderP
   };
 
   return (
-    <header className="w-full bg-white z-[100]">
+    <header className="w-full bg-transparent z-[100]">
       {/* 移动端Header */}
-      <div className="flex justify-between items-center p-5 md:hidden">
-        <Link href="/" className="flex items-center">
-          <Image 
-            src="/navbar/logo.png" 
-            alt="NEXT ART" 
-            width={150} 
-            height={40} 
-            className="object-contain"
-          />
-        </Link>
-        <button 
-          className="p-0 bg-[#FFFC26] rounded-full w-12 h-12 flex items-center justify-center"
-          onClick={() => setShowMenuPopup(true)}
-        >
-          <Image 
-            src="/landingpage/activites/solar_list-bold-duotone.png" 
-            alt="菜单" 
-            width={48} 
-            height={48} 
-            className="object-contain"
-          />
-        </button>
+      <div className="px-3 md:hidden">
+        <div className={`bg-white ${BorderRadius ? 'rounded-[20px]' : 'rounded-t-[20px]'} w-full py-3 px-5 flex justify-between items-center`}>
+          <Link href="/" className="flex items-center">
+            <Image 
+              src="/navbar/logo.png" 
+              alt="NEXT ART" 
+              width={150} 
+              height={40} 
+              className="object-contain"
+            />
+          </Link>
+          <button 
+            className="p-0 bg-[#FFFC26] rounded-full w-12 h-12 flex items-center justify-center"
+            onClick={() => setShowMenuPopup(true)}
+          >
+            <Image 
+              src="/landingpage/activites/solar_list-bold-duotone.png" 
+              alt="菜单" 
+              width={48} 
+              height={48} 
+              className="object-contain"
+            />
+          </button>
+        </div>
       </div>
 
       {/* 桌面端Header */}
-      <div className="hidden md:block fixed top-0 left-0 right-0 bg-white shadow-md z-[100]">
+      <div className="hidden md:block fixed top-0 left-0 right-0 bg-white z-[100]">
         <div className="container mx-auto px-6">
           <div className="flex justify-between items-center h-16">
             <Link href="/" className="flex items-center">
