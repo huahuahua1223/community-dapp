@@ -52,9 +52,9 @@ export default function ProfileEditModal({
   if (!isVisible && !isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-end md:items-center justify-center">
+    <div className="fixed inset-0 bg-black bg-opacity-50 z-[200] flex items-end md:items-center justify-center">
       <div 
-        className={`w-full md:w-[500px] max-w-md bg-white md:rounded-3xl rounded-t-3xl p-6 pb-8 transition-transform duration-300 ease-out 
+        className={`w-full md:w-[500px] max-w-md bg-white md:rounded-3xl rounded-t-3xl p-6 pb-8 transition-transform duration-300 ease-out
           ${isOpen ? 
             'md:translate-y-0 md:animate-none translate-y-0 animate-slide-up' : 
             'md:translate-y-0 translate-y-full'
