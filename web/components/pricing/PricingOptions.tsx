@@ -17,11 +17,11 @@ interface PricingOptionsProps {
 
 export default function PricingOptions({ options, onGetIt }: PricingOptionsProps) {
   return (
-    <div className="space-y-4 md:space-y-2 mb-12 md:mb-0 md:max-w-full md:mx-auto border-2 md:border-0 border-gray-300 rounded-2xl p-4 md:p-0">
+    <div className="space-y-3 mb-3 md:mb-0 md:max-w-full md:mx-auto md:p-0 md:flex md:flex-col md:justify-between">
       {options.map((option) => (
         <div 
           key={option.id}
-          className="bg-black rounded-2xl overflow-hidden p-6 h-[160px] md:h-[120px] relative hover:bg-gray-900 transition-colors cursor-pointer text-white"
+          className="bg-black rounded-[20px] md:rounded-3xl overflow-hidden p-4 md:p-6 h-[160px] md:h-[120px] lg:h-[130px] relative hover:bg-gray-900 transition-colors cursor-pointer text-white"
           onClick={() => onGetIt(option.id)}
         >
           {/* 移动端布局 */}
@@ -38,7 +38,7 @@ export default function PricingOptions({ options, onGetIt }: PricingOptionsProps
             </div>
             
             {/* 文字区域 */}
-            <div className="absolute bottom-6 left-6 max-w-[60%]">
+            <div className="absolute bottom-4 left-4 max-w-[60%]">
               <h3 className="text-3xl font-bold whitespace-nowrap">
                 {option.id === 'free' ? (
                   <>

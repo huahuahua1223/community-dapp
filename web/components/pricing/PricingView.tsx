@@ -93,21 +93,34 @@ export default function PricingView({ userObjects }: PricingViewProps) {
   ];
 
   return (
-    <div className="relative min-h-screen bg-white font-sans">
+    <div className="relative min-h-screen w-full bg-[#302F2F] md:bg-white font-sans flex flex-col overflow-hidden">
       {/* 响应式Header组件 */}
       <Header 
         setShowMenuPopup={setShowMenuPopup} 
         setShowWalletPopup={setShowWalletPopup} 
+        BorderRadius={true}
       />
 
       {/* 主要内容 - 使用PricingContent组件 */}
-      <PricingContent pricingOptions={pricingOptions} onGetIt={handleGetIt} />
+      <div className="flex-grow flex flex-col">
+        <PricingContent pricingOptions={pricingOptions} onGetIt={handleGetIt} />
+      </div>
       
-      {/* 捐赠区域 */}
-      <Donate />
-      
-      {/* 页脚 */}
-      <Footer />
+      {/* 捐赠区域 和 页脚 */}
+      <div className="mt-0">
+        <div className="px-3 mt-6 md:px-6 lg:px-8 max-w-screen-2xl mx-auto w-full">
+          <div className="py-0">
+            <div className="bg-[#302F2F] md:bg-transparent rounded-[20px] md:rounded-none">
+              <Donate />
+            </div>
+          </div>
+        </div>
+        <div className="px-3 mt-4 md:px-0">
+          <div className="bg-[#302F2F] md:bg-transparent rounded-[20px] md:rounded-none">
+            <Footer />
+          </div>
+        </div>
+      </div>
 
       {/* 弹窗组件 */}
       <MenuModal 
