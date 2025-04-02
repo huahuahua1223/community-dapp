@@ -6,7 +6,7 @@ import {
   MODULE_NAMES, 
   MEMBER_NFT_TYPE, 
   MEMBER_RECORD_TYPE,
-  RULE_TYPE,
+  VALIDATORS_TYPE,
   VERSION_TYPE,
   EVENT_NAMES 
 } from "./constants";
@@ -90,28 +90,28 @@ export const getMemberRecord = async (): Promise<SuiObjectResponse | null> => {
   }
 };
 
-// 获取规则对象
-export const getRule = async (): Promise<SuiObjectResponse | null> => {
+// 获取验证器对象
+export const getValidators = async (): Promise<SuiObjectResponse | null> => {
   const packageId = getContractConfig("testnet").Package;
-  const ruleID = getContractConfig("testnet").Rule;
-  const ruleType = RULE_TYPE(packageId);
+  const validatorsID = getContractConfig("testnet").Validators;
+  const validatorsType = VALIDATORS_TYPE(packageId);
   
   try {
-    const rule = await suiClient.getObject({
-      id: ruleID,
+    const validators = await suiClient.getObject({
+      id: validatorsID,
       options: {
         showContent: true,
         showType: true,
       },
     });
     
-    if (rule.data?.content?.dataType === "moveObject" && 
-        rule.data?.content?.type === ruleType) {
-      return rule;
+    if (validators.data?.content?.dataType === "moveObject" && 
+        validators.data?.content?.type === validatorsType) {
+      return validators;
     }
     return null;
   } catch (error) {
-    console.error("Failed to fetch rule:", error);
+    console.error("Failed to fetch validators:", error);
     return null;
   }
 };
