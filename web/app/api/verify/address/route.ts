@@ -24,7 +24,7 @@ export async function POST(request: Request) {
     }
 }
 
-const signMessage = async (address: any) => {
+const signMessage = async (address: string) => {
     try {
         const address_info = bcs.Address;
 

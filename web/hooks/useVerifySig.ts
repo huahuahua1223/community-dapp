@@ -2,14 +2,15 @@
 
 import { useState } from 'react'
 import { apiFetch } from '@/utils/apiClient'
+import { OffChainValidatorParams } from '@/types/verify'
 
 export const useVerifySig = () => {
     const [isLoading, setIsLoading] = useState(false)
     const [error, setError] = useState<string | null>(null)
     
-    const verifyOffChainValidation = async (data: any) => {
+    const verifyOffChainValidation = async (data: OffChainValidatorParams) => {
         try {
-            const response = await apiFetch<any>(`/api/verify/off-chain-validator`, {
+            const response = await apiFetch<OffChainValidatorParams>(`/api/verify/off-chain-validator`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
@@ -24,9 +25,9 @@ export const useVerifySig = () => {
         }
     }
 
-    const verifyaddress = async (data: any) => {
+    const verifyaddress = async (data: string) => {
         try {
-            const response = await apiFetch<any>(`/api/verify/address`, {
+            const response = await apiFetch<string>(`/api/verify/address`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
